@@ -1,0 +1,32 @@
+{
+    "name": "cre8it/vincrease",
+    "description": "A Package to increase a Version-Number .env key mainly for continuous deployment",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["versioning", "env", "laravel", "deployment"],
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Cre8it\\Vincrease\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cre8-it",
+            "email": "info@cre8-it.de"
+        }
+    ],
+    "homepage": "https://cre8-it.de/",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9.0|^10.0|^11.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cre8it\\Vincrease\\VincreaseServiceProvider"
+            ]
+        }
+    }
+}
