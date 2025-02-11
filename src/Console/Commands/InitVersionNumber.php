@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 class InitVersionNumber extends Command
 {
-    protected $signature = 'version:init {--app-version=}';
+    protected $signature = 'vincrease:init {--app-version=}';
 
     protected $description = 'Init version number';
 

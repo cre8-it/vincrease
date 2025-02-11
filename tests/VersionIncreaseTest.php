@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\File;
 test('it fails if the .env file is missing', function (): void {
     File::shouldReceive('exists')->once()->with(base_path('.env'))->andReturn(false);
 
-    $this->artisan('version:increase')
+    $this->artisan('vincrease:up')
         ->expectsOutput('.env file not found!')
         ->assertExitCode(1);
 });
@@ -21,7 +21,7 @@ describe('for tests with a valid .env file', function (): void {
         ENV
         );
 
-        $this->artisan('version:increase')
+        $this->artisan('vincrease:up')
             ->expectsOutput('APP_VERSION not found or invalid format.')
             ->assertExitCode(1);
     });
@@ -34,7 +34,7 @@ describe('for tests with a valid .env file', function (): void {
 
         File::shouldReceive('put')->withArgs(fn ($path, $content) => str_contains($content, 'APP_VERSION="3.0.0"'));
 
-        $this->artisan('version:increase --type=major')
+        $this->artisan('vincrease:up --type=major')
             ->expectsOutput('APP_VERSION updated to 3.0.0')
             ->assertExitCode(0);
     });
@@ -47,7 +47,7 @@ describe('for tests with a valid .env file', function (): void {
 
         File::shouldReceive('put')->withArgs(fn ($path, $content) => str_contains($content, 'APP_VERSION="2.4.0"'));
 
-        $this->artisan('version:increase --type=minor')
+        $this->artisan('vincrease:up --type=minor')
             ->expectsOutput('APP_VERSION updated to 2.4.0')
             ->assertExitCode(0);
     });
@@ -63,7 +63,7 @@ describe('for tests with a valid .env file', function (): void {
             ->withArgs(fn ($path, $content) => str_contains($content, 'APP_VERSION="2.3.5"'))
             ->andReturnTrue();
 
-        $this->artisan('version:increase')
+        $this->artisan('vincrease:up')
             ->expectsOutput('APP_VERSION updated to 2.3.5')
             ->assertExitCode(0);
     });

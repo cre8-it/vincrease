@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\File;
 test('it fails if the .env file is missing', function (): void {
     File::shouldReceive('exists')->once()->with(base_path('.env'))->andReturn(false)->byDefault();
 
-    $this->artisan('version:init')
+    $this->artisan('vincrease:init')
         ->expectsOutput('.env file not found!')
         ->assertExitCode(1);
 });
@@ -21,7 +21,7 @@ describe('for tests with a valid .env file', function (): void {
             APP_VERSION="2.3.4"
         ENV);
 
-        $this->artisan('version:init')
+        $this->artisan('vincrease:init')
             ->expectsOutput('APP_VERSION already exists: APP_VERSION="2.3.4"')
             ->assertExitCode(1);
     });
@@ -29,7 +29,7 @@ describe('for tests with a valid .env file', function (): void {
     test('it rejects an invalid app version', function (): void {
         File::shouldReceive('get')->once()->with(base_path('.env'))->andReturn('');
 
-        $this->artisan('version:init', ['--app-version' => 'invalid-version'])
+        $this->artisan('vincrease:init', ['--app-version' => 'invalid-version'])
             ->expectsOutput('Invalid version: invalid-version')
             ->assertExitCode(1);
     });
@@ -43,7 +43,7 @@ describe('for tests with a valid .env file', function (): void {
 
         File::shouldReceive('append')->once()->with(base_path('.env'), PHP_EOL.'APP_VERSION="1.0.0"'.PHP_EOL);
 
-        $this->artisan('version:init')
+        $this->artisan('vincrease:init')
             ->expectsOutput('APP_VERSION initialized to 1.0.0')
             ->assertExitCode(0);
     });
@@ -63,7 +63,7 @@ describe('for tests with a valid .env file', function (): void {
             })
             ->andReturnTrue();
 
-        $this->artisan('version:init', ['--app-version' => '1.2.3'])
+        $this->artisan('vincrease:init', ['--app-version' => '1.2.3'])
             ->expectsOutput('APP_VERSION initialized to 1.2.3')
             ->assertExitCode(0);
     });

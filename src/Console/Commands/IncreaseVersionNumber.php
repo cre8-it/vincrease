@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 final class IncreaseVersionNumber extends Command
 {
-    protected $signature = 'version:increase {--type=}';
+    protected $signature = 'vincrease:up {--type=}';
 
     protected $description = 'Increment the APP_VERSION value in the .env file';
 

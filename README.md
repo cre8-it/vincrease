@@ -19,7 +19,7 @@ This package provides a set of Artisan commands for managing version numbers in 
 
 ## Available Commands
 
-### `version:init`
+### `vincrease:init`
 
 Initializes the `APP_VERSION` in your `.env` file if it does not exist. You can provide a custom version with the `--app-version` option.
 
@@ -29,23 +29,23 @@ Initializes the `APP_VERSION` in your `.env` file if it does not exist. You can 
 #### Usage:
 
 ```bash
-  php artisan version:init
+  php artisan vincrease:init
 ```
 
 To specify a version:
 
 ```bash
-  php artisan version:init --app-version=2.0.0
+  php artisan vincrease:init --app-version=2.0.0
 ```
 
-### `version:increase`
+### `vincrease:up`
 
 Increases the version number in `APP_VERSION` in your `.env` file. By default, it increments the patch version, but you can specify the level of increment (major, minor, patch).
 
 #### Usage:
 
 ```bash
-  php artisan version:increase
+  php artisan vincrease:up
 ```
 
 ## Testing
