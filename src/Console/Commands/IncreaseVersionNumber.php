@@ -17,7 +17,6 @@ final class IncreaseVersionNumber extends Command
 
         if (! File::exists($path)) {
             $this->error('.env file not found!');
-            dump('Exit');
 
             return 1;
         }

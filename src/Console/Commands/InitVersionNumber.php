@@ -25,7 +25,6 @@ class InitVersionNumber extends Command
         preg_match('/APP_VERSION="(\d+)\.(\d+)\.(\d+)"/', $envContents, $matches);
 
         if ($matches) {
-            dump($matches);
             [$fullMatch] = $matches;
             $this->error('APP_VERSION already exists: '.$fullMatch);
 
@@ -34,9 +33,9 @@ class InitVersionNumber extends Command
 
         if ($opt = $this->option('app-version')) {
             assert(is_string($opt));
-            dump($opt);
+
             $isValid = $this->validateVersion($opt);
-            dump($isValid);
+
             if (! $isValid) {
                 $this->error('Invalid version: '.$opt);
 
@@ -55,8 +54,6 @@ class InitVersionNumber extends Command
 
     private function validateVersion(string $version): bool
     {
-        dump($version);
-
         return (bool) preg_match('/^\d+\.\d+\.\d+$/', $version);
     }
 }
