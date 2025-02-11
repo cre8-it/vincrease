@@ -8,7 +8,7 @@ This package provides a set of Artisan commands for managing version numbers in 
 1. Install the package via Composer:
 
 ```bash
-  composer require cre8it/vincrease
+  composer require cre8-it/vincrease
 ```
 
 2. (Optional) Publish the configuration file if you need to modify settings:
