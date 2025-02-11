@@ -1,7 +1,7 @@
 
 # Version Management Command
 
-This package provides a set of Artisan commands for managing version numbers in your Laravel project, particularly for handling the APP_VERSION in your .env file. It is designed for continuous deployments and follows semantic versioning to keep track of application updates.
+This package provides a set of Artisan commands for managing version numbers in your Laravel project, particularly for handling the `APP_VERSION` in your `.env` file. It is designed for continuous deployments and follows semantic versioning to keep track of application updates.
 
 ## Installation
 
