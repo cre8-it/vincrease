@@ -4,5 +4,6 @@
 /.php-cs-fixer.php
 /composer.lock
 /vendor/
+/coverage/
 *.swp
 *.swo
