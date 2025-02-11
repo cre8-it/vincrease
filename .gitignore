@@ -1,2 +1,9 @@
-
-/vendor
+/.phpunit.result.cache
+/.phpunit.cache
+/.php-cs-fixer.cache
+/.php-cs-fixer.php
+/composer.lock
+/vendor/
+/coverage/
+*.swp
+*.swo
