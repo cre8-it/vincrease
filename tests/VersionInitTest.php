@@ -57,7 +57,6 @@ describe('for tests with a valid .env file', function (): void {
         File::shouldReceive('append')
             ->once()
             ->withArgs(function ($path, $content) {
-                dump($content);
 
                 return str_contains($content, 'APP_VERSION="1.2.3"');
             })
